@@ -4,7 +4,7 @@ Redshift python library for user agent detection, using uap-python (https://gith
 ## Installing
 ```sql
 CREATE OR REPLACE LIBRARY uap_python LANGUAGE plpythonu
-  FROM 'https://github.com/ajlai/uap-redshift/archive/master.zip';
+  FROM 'https://github.com/ajlai/uap-redshift/releases/download/0.7.2/uap-redshift.zip';
 ```
 See http://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_LIBRARY.html for more documentation on installing custom python modules in redshift.
 

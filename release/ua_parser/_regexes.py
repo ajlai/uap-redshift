@@ -39,6 +39,12 @@ USER_AGENT_PARSERS = [
         None,
     ),
     UserAgentParser(
+        'via ggpht.com GoogleImageProxy',
+        'GmailImageProxy',
+        None,
+        None,
+    ),
+    UserAgentParser(
         '(Twitterbot)/(\\d+)\\.(\\d+)',
         'TwitterBot',
         None,
@@ -239,6 +245,12 @@ USER_AGENT_PARSERS = [
     UserAgentParser(
         '(MyIBrow)/(\\d+)\\.(\\d+)',
         'My Internet Browser',
+        None,
+        None,
+    ),
+    UserAgentParser(
+        '(UC ?Browser|UCWEB|U3)[ /]?(\\d+)\\.(\\d+)\\.(\\d+)',
+        'UC Browser',
         None,
         None,
     ),
@@ -465,7 +477,13 @@ USER_AGENT_PARSERS = [
         None,
     ),
     UserAgentParser(
-        '(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+) Mobile',
+        '(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+) Mobile(?:[ /]|$)',
+        'Chrome Mobile',
+        None,
+        None,
+    ),
+    UserAgentParser(
+        ' Mobile .*(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)',
         'Chrome Mobile',
         None,
         None,
@@ -473,24 +491,6 @@ USER_AGENT_PARSERS = [
     UserAgentParser(
         '(chromeframe)/(\\d+)\\.(\\d+)\\.(\\d+)',
         'Chrome Frame',
-        None,
-        None,
-    ),
-    UserAgentParser(
-        '(UCBrowser)[ /](\\d+)\\.(\\d+)\\.(\\d+)',
-        'UC Browser',
-        None,
-        None,
-    ),
-    UserAgentParser(
-        '(UC Browser)[ /](\\d+)\\.(\\d+)\\.(\\d+)',
-        None,
-        None,
-        None,
-    ),
-    UserAgentParser(
-        '(UC Browser|UCBrowser|UCWEB)(\\d+)\\.(\\d+)\\.(\\d+)',
-        'UC Browser',
         None,
         None,
     ),
@@ -567,7 +567,7 @@ USER_AGENT_PARSERS = [
         None,
     ),
     UserAgentParser(
-        '(AdobeAIR|FireWeb|Jasmine|ANTGalio|Midori|Fresco|Lobo|PaleMoon|Maxthon|Lynx|OmniWeb|Dillo|Camino|Demeter|Fluid|Fennec|Epiphany|Shiira|Sunrise|Spotify|Flock|Netscape|Lunascape|WebPilot|NetFront|Netfront|Konqueror|SeaMonkey|Kazehakase|Vienna|Iceape|Iceweasel|IceWeasel|Iron|K-Meleon|Sleipnir|Galeon|GranParadiso|Opera Mini|iCab|NetNewsWire|ThunderBrowse|Iris|UP\\.Browser|Bunjalloo|Google Earth|Raven for Mac|Openwave)/(\\d+)\\.(\\d+)\\.(\\d+)',
+        '\\b(MobileIron|Crosswalk|AdobeAIR|FireWeb|Jasmine|ANTGalio|Midori|Fresco|Lobo|PaleMoon|Maxthon|Lynx|OmniWeb|Dillo|Camino|Demeter|Fluid|Fennec|Epiphany|Shiira|Sunrise|Spotify|Flock|Netscape|Lunascape|WebPilot|NetFront|Netfront|Konqueror|SeaMonkey|Kazehakase|Vienna|Iceape|Iceweasel|IceWeasel|Iron|K-Meleon|Sleipnir|Galeon|GranParadiso|Opera Mini|iCab|NetNewsWire|ThunderBrowse|Iris|UP\\.Browser|Bunjalloo|Google Earth|Raven for Mac|Openwave)/(\\d+)\\.(\\d+)\\.(\\d+)',
         None,
         None,
         None,
@@ -597,14 +597,38 @@ USER_AGENT_PARSERS = [
         None,
     ),
     UserAgentParser(
+        'Outlook-Express\\/7\\.0.*',
+        'Windows Live Mail',
+        None,
+        None,
+    ),
+    UserAgentParser(
         '(Airmail) (\\d+)\\.(\\d+)(?:\\.(\\d+))?',
         None,
         None,
         None,
     ),
     UserAgentParser(
-        '(Thunderbird)/(\\d+)\\.(\\d+)\\.(\\d+(?:pre)?)',
+        '(Thunderbird)/(\\d+)\\.(\\d+)(?:\\.(\\d+(?:pre)?))?',
         'Thunderbird',
+        None,
+        None,
+    ),
+    UserAgentParser(
+        '(Postbox)/(\\d+)\\.(\\d+)\\.(\\d+)',
+        'Postbox',
+        None,
+        None,
+    ),
+    UserAgentParser(
+        '(Barca(?:Pro)?)/(\\d+)\\.(\\d+)(?:\\.(\\d+))?',
+        'Barca',
+        None,
+        None,
+    ),
+    UserAgentParser(
+        '(Lotus-Notes)/(\\d+)\\.(\\d+)(?:\\.(\\d+))?',
+        'Lotus Notes',
         None,
         None,
     ),
@@ -639,7 +663,7 @@ USER_AGENT_PARSERS = [
         None,
     ),
     UserAgentParser(
-        '(bingbot|Bolt|Jasmine|IceCat|Skyfire|Midori|Maxthon|Lynx|Arora|IBrowse|Dillo|Camino|Shiira|Fennec|Phoenix|Chrome|Flock|Netscape|Lunascape|Epiphany|WebPilot|Opera Mini|Opera|NetFront|Netfront|Konqueror|Googlebot|SeaMonkey|Kazehakase|Vienna|Iceape|Iceweasel|IceWeasel|Iron|K-Meleon|Sleipnir|Galeon|GranParadiso|iCab|iTunes|MacAppStore|NetNewsWire|Space Bison|Stainless|Orca|Dolfin|BOLT|Minimo|Tizen Browser|Polaris|Abrowser|Planetweb|ICE Browser|mDolphin|qutebrowser|Otter|QupZilla)/(\\d+)\\.(\\d+)\\.?(\\d+)?',
+        '(bingbot|Bolt|Jasmine|IceCat|Skyfire|Midori|Maxthon|Lynx|Arora|IBrowse|Dillo|Camino|Shiira|Fennec|Phoenix|Chrome|Flock|Netscape|Lunascape|Epiphany|WebPilot|Opera Mini|Opera|NetFront|Netfront|Konqueror|Googlebot|SeaMonkey|Kazehakase|Vienna|Iceape|Iceweasel|IceWeasel|Iron|K-Meleon|Sleipnir|Galeon|GranParadiso|iCab|iTunes|MacAppStore|NetNewsWire|Space Bison|Stainless|Orca|Dolfin|BOLT|Minimo|Tizen Browser|Polaris|Abrowser|Planetweb|ICE Browser|mDolphin|qutebrowser|Otter|QupZilla|MailBar|kmail2|YahooMobileMail)/(\\d+)\\.(\\d+)\\.?(\\d+)?',
         None,
         None,
         None,
@@ -663,7 +687,7 @@ USER_AGENT_PARSERS = [
         None,
     ),
     UserAgentParser(
-        '(iCab|Lunascape|Opera|Android|Jasmine|Polaris) (\\d+)\\.(\\d+)\\.?(\\d+)?',
+        '(iCab|Lunascape|Opera|Android|Jasmine|Polaris|The Bat!) (\\d+)\\.(\\d+)\\.?(\\d+)?',
         None,
         None,
         None,
@@ -783,13 +807,13 @@ USER_AGENT_PARSERS = [
         None,
     ),
     UserAgentParser(
-        '(iPod|iPhone|iPad);.*CPU.*OS (\\d+)_(\\d+)(?:_(\\d+))?.*Mobile.* Safari',
+        '(iPod|iPod touch|iPhone|iPad);.*CPU.*OS (\\d+)_(\\d+)(?:_(\\d+))?.*Mobile.* Safari',
         'Mobile Safari',
         None,
         None,
     ),
     UserAgentParser(
-        '(iPod|iPhone|iPad);.*CPU.*OS (\\d+)_(\\d+)(?:_(\\d+))?.*Mobile',
+        '(iPod|iPod touch|iPhone|iPad);.*CPU.*OS (\\d+)_(\\d+)(?:_(\\d+))?.*Mobile',
         'Mobile Safari UI/WKWebView',
         None,
         None,
@@ -1024,7 +1048,7 @@ USER_AGENT_PARSERS = [
     ),
     UserAgentParser(
         '(AppleWebKit)/(\\d+)\\.(\\d+)\\.(\\d+)',
-        'AppleMail',
+        'Apple Mail',
         None,
         None,
     ),
@@ -2153,7 +2177,7 @@ DEVICE_PARSERS = [
         'Ideos$1',
     ),
     DeviceParser(
-        '; *(Orange Daytona|Pulse|Pulse Mini|Vodafone 858|C8500|C8600|C8650|C8660) Build',
+        '; *(Orange Daytona|Pulse|Pulse Mini|Vodafone 858|C8500|C8600|C8650|C8660|Nexus 6P) Build',
         None,
         'Huawei $1',
         'Huawei',
@@ -2734,7 +2758,7 @@ DEVICE_PARSERS = [
         '$1$2',
     ),
     DeviceParser(
-        '; *(E[34][0-9]{2}|LS[6-8][0-9]{2}|VS[6-9][0-9]+[^;/]+|Nexus [45]|GT540f?|Optimus (?:2X|G|4X HD)|OptimusX4HD) *(?:Build|;)',
+        '; *(E[34][0-9]{2}|LS[6-8][0-9]{2}|VS[6-9][0-9]+[^;/]+|Nexus 4|Nexus 5X?|GT540f?|Optimus (?:2X|G|4X HD)|OptimusX4HD) *(?:Build|;)',
         None,
         '$1',
         'LG',
@@ -2767,6 +2791,13 @@ DEVICE_PARSERS = [
         '$1 $2',
         'LG',
         '$2',
+    ),
+    DeviceParser(
+        '(Web0S); Linux/(SmartTV)',
+        None,
+        'LG $1 $2',
+        'LG',
+        '$1 $2',
     ),
     DeviceParser(
         '; *((?:SMB|smb)[^;/]+) Build/',
@@ -4029,7 +4060,7 @@ DEVICE_PARSERS = [
         '$2',
     ),
     DeviceParser(
-        '; *((MI|HM|MI-ONE|Redmi)[ -](NOTE |Note )?[^;/]*) Build/',
+        '; *((MI|HM|MI-ONE|Redmi)[ -](NOTE |Note )?[^;/]*) (Build|MIUI)/',
         None,
         'XiaoMi $1',
         'XiaoMi',
@@ -5079,7 +5110,7 @@ DEVICE_PARSERS = [
         'Smartphone',
     ),
     DeviceParser(
-        '(bot|zao|borg|DBot|oegp|silk|Xenu|zeal|^NING|CCBot|crawl|htdig|lycos|slurp|teoma|voila|yahoo|Sogou|CiBra|Nutch|^Java/|^JNLP/|Daumoa|Genieo|ichiro|larbin|pompos|Scrapy|snappy|speedy|spider|msnbot|msrbot|vortex|^vortex|crawler|favicon|indexer|Riddler|scooter|scraper|scrubby|WhatWeb|WinHTTP|bingbot|openbot|gigabot|furlbot|polybot|seekbot|^voyager|archiver|Icarus6j|mogimogi|Netvibes|blitzbot|altavista|charlotte|findlinks|Retreiver|TLSProber|WordPress|SeznamBot|ProoXiBot|wsr\\-agent|Squrl Java|EtaoSpider|PaperLiBot|SputnikBot|A6\\-Indexer|netresearch|searchsight|baiduspider|YisouSpider|ICC\\-Crawler|http%20client|Python-urllib|dataparksearch|converacrawler|Screaming Frog|AppEngine-Google|YahooCacheSystem|fast\\-webcrawler|Sogou Pic Spider|semanticdiscovery|Innovazion Crawler|facebookexternalhit|Google.*/\\+/web/snippet|Google-HTTP-Java-Client|BlogBridge|IlTrovatore-Setaccio|InternetArchive|GomezAgent|WebThumbnail|heritrix|NewsGator|PagePeeker|Reaper|ZooShot|holmes)',
+        '(bot|zao|borg|DBot|oegp|silk|Xenu|zeal|^NING|CCBot|crawl|htdig|lycos|slurp|teoma|voila|yahoo|Sogou|CiBra|Nutch|^Java/|^JNLP/|Daumoa|Genieo|ichiro|larbin|pompos|Scrapy|snappy|speedy|spider|msnbot|msrbot|vortex|^vortex|crawler|favicon|indexer|Riddler|scooter|scraper|scrubby|WhatWeb|WinHTTP|bingbot|openbot|gigabot|furlbot|polybot|seekbot|^voyager|archiver|Icarus6j|mogimogi|Netvibes|blitzbot|altavista|charlotte|findlinks|Retreiver|TLSProber|WordPress|SeznamBot|ProoXiBot|wsr\\-agent|Squrl Java|EtaoSpider|PaperLiBot|SputnikBot|A6\\-Indexer|netresearch|searchsight|baiduspider|YisouSpider|ICC\\-Crawler|http%20client|Python-urllib|dataparksearch|converacrawler|Screaming Frog|AppEngine-Google|YahooCacheSystem|fast\\-webcrawler|Sogou Pic Spider|semanticdiscovery|Innovazion Crawler|facebookexternalhit|Google.*/\\+/web/snippet|Google-HTTP-Java-Client|BlogBridge|IlTrovatore-Setaccio|InternetArchive|GomezAgent|WebThumbnail|heritrix|NewsGator|PagePeeker|Reaper|ZooShot|holmes|NL-Crawler)',
         'i',
         'Spider',
         'Spider',
@@ -5731,6 +5762,14 @@ OS_PARSERS = [
         None,
     ),
     OSParser(
+        'CFNetwork/8.* Darwin/(16)\\.\\d+',
+        'iOS',
+        '10',
+        '0',
+        None,
+        None,
+    ),
+    OSParser(
         '\\b(iOS[ /]|iPhone(?:/| v|[ _]OS[/,]|; | OS : |\\d,\\d/|\\d,\\d; )|iPad/)(\\d{1,2})[_\\.](\\d{1,2})(?:[_\\.](\\d+))?',
         'iOS',
         None,
@@ -6051,7 +6090,7 @@ OS_PARSERS = [
         None,
     ),
     OSParser(
-        '(Windows|Android|WeTab|Maemo)',
+        '(Windows|Android|WeTab|Maemo|Web0S)',
         None,
         None,
         None,
