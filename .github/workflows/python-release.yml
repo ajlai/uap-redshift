@@ -38,15 +38,6 @@ jobs:
         tag_name: ${{ github.ref }}
         release_name: Release ${{ github.ref }}
         draft: true
-        prerelease: true
-        body: |
-          Bumps uap-python to `${{ github.ref }}
-
-          Install/Update this by running in redshift:
-          ```SQL
-          CREATE OR REPLACE LIBRARY uap_redshift LANGUAGE plpythonu
-                      FROM 'https://github.com/ajlai/uap-redshift/releases/download/${{ github.ref }}/uap-redshift.zip';
-          ```
     - name: Upload Release Asset
       id: upload-release-asset
       uses: actions/upload-release-asset@v1
