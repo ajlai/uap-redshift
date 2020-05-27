@@ -26,7 +26,7 @@ jobs:
         cd uap-python
         git checkout 0.7.2
         python setup.py install
-        cp -R build/lib/ua_parser/ assets-uap-redshift/ua_parser/
+        cp -R build/lib/ua_parser/ ../assets-uap-redshift/ua_parser/
         cd ../assets-uap-redshift
         zip ../uap-redshift.zip * */* && cd ..
     - name: Create release
